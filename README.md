@@ -24,7 +24,7 @@ func main(){
     var users  []User
     db, err := gorm.Open("postgres", ....)
     order_by := []string{"id asc"}
-    p := pg.Paginator{DB: &db, OrderBy: order_by, Page: "1", PerPage: "10"}
+    p := pg.Paginator{DB: db, OrderBy: order_by, Page: "1", PerPage: "10"}
     data := p.Paginate(&users)
     totalRecords := data.TotalRecords 
     currentPage := data.CurrentPage
